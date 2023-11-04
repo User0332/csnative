@@ -1,2 +1,5 @@
 /.vscode
 /csnative.sln
+bin
+obj
+*.exe

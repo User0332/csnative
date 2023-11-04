@@ -5,7 +5,20 @@
 
 namespace System
 {
-	class Char;
+	class Int16;
+	
+	class Char : public Object
+	{
+		wchar_t inner;
+
+		public:
+			Char(wchar_t native);
+			Char(short native);
+			Char(Int16 c);
+
+			String* ToString(); // note the String* return val since this is a reference type
+			wchar_t ToNative();
+	};
 	
 	class String : public Object
 	{

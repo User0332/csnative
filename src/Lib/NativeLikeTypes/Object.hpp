@@ -2,8 +2,8 @@
 
 namespace System
 {
-	class Boolean;
 	class String;
+	class Boolean;
 	
 	class Object
 	{
@@ -13,5 +13,20 @@ namespace System
 
 			Object();
 			virtual String* ToString();
+	};
+
+	class Boolean : public Object
+	{
+		bool val;
+		
+		public:
+			explicit operator bool();
+
+			bool ToNative();
+
+			Boolean();
+			Boolean(bool native);
+
+			String* ToString();
 	};
 }

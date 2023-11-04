@@ -1,4 +1,5 @@
-#include "System.hpp"
+#include "../String.hpp"
+#include "../NumTypes.hpp"
 
 namespace System
 {
