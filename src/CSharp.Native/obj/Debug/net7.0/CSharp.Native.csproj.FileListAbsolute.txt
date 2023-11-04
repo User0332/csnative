@@ -1,0 +1,15 @@
+C:\Users\carlf\programs\csnative\src\CSharp.Native\bin\Debug\net7.0\CSharp.Native.exe
+C:\Users\carlf\programs\csnative\src\CSharp.Native\bin\Debug\net7.0\CSharp.Native.deps.json
+C:\Users\carlf\programs\csnative\src\CSharp.Native\bin\Debug\net7.0\CSharp.Native.runtimeconfig.json
+C:\Users\carlf\programs\csnative\src\CSharp.Native\bin\Debug\net7.0\CSharp.Native.dll
+C:\Users\carlf\programs\csnative\src\CSharp.Native\bin\Debug\net7.0\CSharp.Native.pdb
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.csproj.AssemblyReference.cache
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.AssemblyInfoInputs.cache
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.AssemblyInfo.cs
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.csproj.CoreCompileInputs.cache
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.dll
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\refint\CSharp.Native.dll
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.pdb
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\CSharp.Native.genruntimeconfig.cache
+C:\Users\carlf\programs\csnative\src\CSharp.Native\obj\Debug\net7.0\ref\CSharp.Native.dll
