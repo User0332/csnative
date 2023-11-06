@@ -27,4 +27,17 @@ namespace System
 	{
 		return inner;
 	}
+
+	Char::operator Char *()
+	{
+		Char* boxed = new Char(inner);
+		GC::Register(boxed);
+
+		return boxed;
+	}
+
+	Char::~Char()
+	{
+		GC::UnRegister(this);
+	}
 }

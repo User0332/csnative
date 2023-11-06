@@ -29,4 +29,17 @@ namespace System
 		
 		return new String(L"False");
 	}
+
+	Boolean::operator Boolean *()
+	{
+		Boolean* boxed = new Boolean(val);
+		GC::Register(boxed);
+
+		return boxed;
+	}
+
+	Boolean::~Boolean()
+	{
+		GC::UnRegister(this);
+	}
 }

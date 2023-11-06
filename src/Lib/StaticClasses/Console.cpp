@@ -10,7 +10,7 @@ namespace System
 
 	void Console::Write(String* string)
 	{
-		std::wcout << string->ToCpp().c_str();
+		std::wcout << string->ToCpp();
 	}
 
 	void Console::WriteLine()

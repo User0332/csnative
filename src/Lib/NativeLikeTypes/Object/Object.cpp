@@ -14,10 +14,18 @@ namespace System
 		return Boolean(a == b);
 	}
 
-	Object::Object() { }
+	Object::Object()
+	{
+		GC::Register(this);
+	}
 
 	String* Object::ToString()
 	{
 		return new String(L"System.Object");
+	}
+
+	Object::~Object()
+	{
+		GC::UnRegister(this);
 	}
 }

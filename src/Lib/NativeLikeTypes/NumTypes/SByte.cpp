@@ -86,4 +86,17 @@ namespace System
 	{
 		return new String(std::to_string(val));
 	}
+
+	SByte::operator SByte *()
+	{
+		SByte* boxed = new SByte(val);
+		GC::Register(boxed);
+
+		return boxed;
+	}
+
+	SByte::~SByte()
+	{
+		GC::UnRegister(this);
+	}
 }

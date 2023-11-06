@@ -1,4 +1,8 @@
+#include "../CSharp.Native/GarbageCollector.hpp"
+
 #pragma once
+
+using namespace CSharp::Native;
 
 namespace System
 {
@@ -12,6 +16,7 @@ namespace System
 			static Boolean ReferenceEquals(Object* a, Object* b);
 
 			Object();
+			virtual ~Object();
 			virtual String* ToString();
 	};
 
@@ -26,7 +31,10 @@ namespace System
 
 			Boolean();
 			Boolean(bool native);
+			~Boolean();
 
 			String* ToString();
+
+			operator Boolean*(); // all structs must define a boxing conversion operator
 	};
 }

@@ -38,8 +38,11 @@ namespace System
 
 			Int64();
 			Int64(long long native);
+			~Int64();
 
 			String* ToString();
+
+			operator Int64*(); // all structs must define a boxing conversion operator
 	};
 
 	class Int32 : public Object
@@ -74,8 +77,11 @@ namespace System
 
 			Int32();
 			Int32(int native);
+			~Int32();
 
 			String* ToString();
+			
+			operator Int32*(); // all structs must define a boxing conversion operator
 	};
 
 	class Int16 : public Object
@@ -107,8 +113,11 @@ namespace System
 
 			Int16();
 			Int16(short native);
+			~Int16();
 
 			String* ToString();
+
+			operator Int16*(); // all structs must define a boxing conversion operator
 	};
 
 	class SByte : public Object
@@ -140,8 +149,11 @@ namespace System
 
 			SByte();
 			SByte(char native);
+			~SByte();
 
 			String* ToString();
+
+			operator SByte*(); // all structs must define a boxing conversion operator
 	};
 
 	class UInt64 : public Object
@@ -176,8 +188,11 @@ namespace System
 
 			UInt64();
 			UInt64(unsigned long long native);
+			~UInt64();
 
 			String* ToString();
+
+			operator UInt64*(); // all structs must define a boxing conversion operator
 	};
 
 	class UInt32 : public Object
@@ -212,8 +227,11 @@ namespace System
 
 			UInt32();
 			UInt32(unsigned int native);
+			~UInt32();
 
 			String* ToString();
+
+			operator UInt32*(); // all structs must define a boxing conversion operator
 	};
 
 	class UInt16 : public Object
@@ -245,8 +263,11 @@ namespace System
 
 			UInt16();
 			UInt16(unsigned short native);
+			~UInt16();
 
 			String* ToString();
+
+			operator UInt16*(); // all structs must define a boxing conversion operator
 	};
 
 	class Byte : public Object
@@ -278,7 +299,10 @@ namespace System
 
 			Byte();
 			Byte(unsigned char native);
+			~Byte();
 
 			String* ToString();
+
+			operator Byte*(); // all structs must define a boxing conversion operator
 	};
 }

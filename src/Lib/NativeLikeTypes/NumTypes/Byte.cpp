@@ -86,4 +86,17 @@ namespace System
 	{
 		return new String(std::to_string(val));
 	}
+
+	Byte::operator Byte *()
+	{
+		Byte* boxed = new Byte(val);
+		GC::Register(boxed);
+
+		return boxed;
+	}
+
+	Byte::~Byte()
+	{
+		GC::UnRegister(this);
+	}
 }

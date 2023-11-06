@@ -86,4 +86,17 @@ namespace System
 	{
 		return new String(std::to_string(val));
 	}
+
+	UInt32::operator UInt32 *()
+	{
+		UInt32* boxed = new UInt32(val);
+		GC::Register(boxed);
+
+		return boxed;
+	}
+
+	UInt32::~UInt32()
+	{
+		GC::UnRegister(this);
+	}
 }
