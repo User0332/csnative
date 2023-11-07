@@ -89,13 +89,11 @@ namespace System
 
 	UInt16::operator UInt16 *()
 	{
-		UInt16* boxed = new UInt16(val);
-		GC::Register(boxed);
-
-		return boxed;	}
+		return new UInt16(val);
+	}
 
 	UInt16::~UInt16()
 	{
-		GC::UnRegister(this);
+
 	}
 }

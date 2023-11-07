@@ -89,14 +89,11 @@ namespace System
 
 	UInt32::operator UInt32 *()
 	{
-		UInt32* boxed = new UInt32(val);
-		GC::Register(boxed);
-
-		return boxed;
+		return new UInt32(val);
 	}
 
 	UInt32::~UInt32()
 	{
-		GC::UnRegister(this);
+
 	}
 }

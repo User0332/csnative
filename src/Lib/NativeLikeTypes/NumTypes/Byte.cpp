@@ -89,14 +89,11 @@ namespace System
 
 	Byte::operator Byte *()
 	{
-		Byte* boxed = new Byte(val);
-		GC::Register(boxed);
-
-		return boxed;
+		return new Byte(val);
 	}
 
 	Byte::~Byte()
 	{
-		GC::UnRegister(this);
+
 	}
 }

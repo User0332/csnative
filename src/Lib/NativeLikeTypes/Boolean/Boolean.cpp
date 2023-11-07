@@ -32,14 +32,11 @@ namespace System
 
 	Boolean::operator Boolean *()
 	{
-		Boolean* boxed = new Boolean(val);
-		GC::Register(boxed);
-
-		return boxed;
+		return new Boolean(val);
 	}
 
 	Boolean::~Boolean()
 	{
-		GC::UnRegister(this);
+		
 	}
 }

@@ -17,5 +17,7 @@ namespace CSharp::Native
 			static void Register(System::Object* ptr);
 
 			static void UnRegister(System::Object* ptr);
+
+			static void PrintEntries();
 	};
 }

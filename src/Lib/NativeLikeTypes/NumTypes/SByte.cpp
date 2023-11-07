@@ -89,14 +89,11 @@ namespace System
 
 	SByte::operator SByte *()
 	{
-		SByte* boxed = new SByte(val);
-		GC::Register(boxed);
-
-		return boxed;
+		return new SByte(val);
 	}
 
 	SByte::~SByte()
 	{
-		GC::UnRegister(this);
+
 	}
 }

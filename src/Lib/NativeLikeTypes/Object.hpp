@@ -1,8 +1,4 @@
-#include "../CSharp.Native/GarbageCollector.hpp"
-
 #pragma once
-
-using namespace CSharp::Native;
 
 namespace System
 {

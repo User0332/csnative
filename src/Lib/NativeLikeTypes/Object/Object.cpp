@@ -1,22 +1,41 @@
 #include "../Object.hpp"
 #include "../String.hpp"
+#include "../../CSharp.Native/GarbageCollector.hpp"
+
+using namespace CSharp::Native;
 
 namespace System
 {
 	/* Object */
 	Boolean Object::Equals(Object* a, Object* b)
 	{
-		return Boolean(false);
+		GC::Register(a);
+		GC::Register(b);
+
+		bool res = false; // TODO: CHANGE LATER
+
+		GC::UnRegister(a);
+		GC::UnRegister(b);
+
+		return Boolean(res);
 	}
 
 	Boolean Object::ReferenceEquals(Object* a, Object* b)
 	{
-		return Boolean(a == b);
+		GC::Register(a);
+		GC::Register(b);
+
+		bool res = a == b;
+
+		GC::UnRegister(a);
+		GC::UnRegister(b);
+
+		return Boolean(res);
 	}
 
 	Object::Object()
 	{
-		GC::Register(this);
+
 	}
 
 	String* Object::ToString()
@@ -26,6 +45,6 @@ namespace System
 
 	Object::~Object()
 	{
-		GC::UnRegister(this);
+
 	}
 }

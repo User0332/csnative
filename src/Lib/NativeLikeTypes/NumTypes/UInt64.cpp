@@ -89,13 +89,11 @@ namespace System
 
 	UInt64::operator UInt64 *()
 	{
-		UInt64* boxed = new UInt64(val);
-		GC::Register(boxed);
-
-		return boxed;	}
+		return new UInt64(val);
+	}
 
 	UInt64::~UInt64()
 	{
-		GC::UnRegister(this);
+
 	}
 }

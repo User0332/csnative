@@ -30,14 +30,11 @@ namespace System
 
 	Char::operator Char *()
 	{
-		Char* boxed = new Char(inner);
-		GC::Register(boxed);
-
-		return boxed;
+		return new Char(inner);
 	}
 
 	Char::~Char()
 	{
-		GC::UnRegister(this);
+
 	}
 }

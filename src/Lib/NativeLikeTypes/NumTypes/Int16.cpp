@@ -89,14 +89,11 @@ namespace System
 
 	Int16::operator Int16 *()
 	{
-		Int16* boxed = new Int16(val);
-		GC::Register(boxed);
-
-		return boxed;
+		return new Int16(val);
 	}
 
 	Int16::~Int16()
 	{
-		GC::UnRegister(this);
+
 	}
 }

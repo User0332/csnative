@@ -89,14 +89,11 @@ namespace System
 
 	Int32::operator Int32 *()
 	{
-		Int32* boxed = new Int32(val);
-		GC::Register(boxed);
-
-		return boxed;
+		return new Int32(val);
 	}
 
 	Int32::~Int32()
 	{
-		GC::UnRegister(this);
+
 	}
 }
