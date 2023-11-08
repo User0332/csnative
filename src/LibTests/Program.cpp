@@ -1,5 +1,5 @@
 #include "../Lib/System.hpp"
-#include "../Lib/CSharp.Native/GarbageCollector.hpp"
+#include "../Lib/CSharp.Native/HeapObject.hpp"
 #include <iostream>
 
 using namespace System;
@@ -11,25 +11,16 @@ int main()
 	Int32 y = Int32(6);
 	Boolean truthy = x > y;
 
-	String* str1 = new String(L"Hello, World!", 13);
-	GC::Register(str1);
-	String* str2 = new String(L"Value of y\0+x is: ", 18);
-	GC::Register(str2);
-	String* str3 = new String(L"Value of boolean is: ", 21);
-	GC::Register(str3);
+	HeapManagedObject<String> str1 = HeapManagedObject<String>(new String(L"Hello, World!", 13));
+	HeapManagedObject<String> str2 = HeapManagedObject<String>(new String(L"Value of y\0+x is: ", 18));
+	HeapManagedObject<String> str3 = HeapManagedObject<String>(new String(L"Value of boolean is: ", 21));
 
 	Console::WriteLine(str1);
 	Console::Write(str2);
-	Console::WriteLine(x+y);
+	Console::WriteLine(HeapManagedObject<Int32>(x+y));
 	Console::Write(str3);
-	Console::WriteLine(truthy);
-	Console::WriteLine(new Object());
-
-	GC::UnRegister(str1);
-	GC::UnRegister(str2);
-	GC::UnRegister(str3);
-
-	GC::PrintEntries();
+	Console::WriteLine(HeapManagedObject<Boolean>(truthy));
+	Console::WriteLine(HeapManagedObject<Object>(new Object()));
 
 	return 0;
 }

@@ -1,4 +1,6 @@
+#include "../NativeLikeTypes/Object.hpp"
 #include <map>
+#include <iostream>
 
 #pragma once
 

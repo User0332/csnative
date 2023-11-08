@@ -63,9 +63,7 @@ namespace System
 
 	String* String::operator+(String* other)
 	{
-		GC::Register(other);
 		String* ret = new String(inner+other->inner);
-		GC::UnRegister(other);
 
 		return ret;
 	}

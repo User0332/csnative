@@ -55,3 +55,7 @@ public class Program
 	}
 }
 ```
+
+## Memory Management And Garbage Collection
+
+Currently, `GarbageCollector.hpp` (`CSharp::Native::GC`) is deprecated and `CSharp::Native::HeapManagedObject<TObject>` should be used instead. Each function should only create heap-allocated objects with a `HeapManagedObject<TObject>` wrapper around the object, but should only pass arguments to functions as the raw object pointer (and functions should only accept arguments that are descended from `System::Object`). The wrapper class is a smart pointer, and should therefore be allocated on the stack
