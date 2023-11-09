@@ -1,9 +1,10 @@
 #include "../Lib/System.hpp"
-#include "../Lib/CSharp.Native/HeapObject.hpp"
+#include "../Lib/System/Collections/Generic.hpp"
+#include <memory>
 #include <iostream>
 
 using namespace System;
-using namespace CSharp::Native;
+using std::unique_ptr;
 
 int main()
 {
@@ -11,16 +12,19 @@ int main()
 	Int32 y = Int32(6);
 	Boolean truthy = x > y;
 
-	HeapManagedObject<String> str1 = HeapManagedObject<String>(new String(L"Hello, World!", 13));
-	HeapManagedObject<String> str2 = HeapManagedObject<String>(new String(L"Value of y\0+x is: ", 18));
-	HeapManagedObject<String> str3 = HeapManagedObject<String>(new String(L"Value of boolean is: ", 21));
+	unique_ptr<String> str1 = unique_ptr<String>(new String(L"Hello, World!", 13));
+	unique_ptr<String> str2 = unique_ptr<String>(new String(L"Value of y\0+x is: ", 18));
+	unique_ptr<String> str3 = unique_ptr<String>(new String(L"Value of boolean is: ", 21));
 
-	Console::WriteLine(str1);
-	Console::Write(str2);
-	Console::WriteLine(HeapManagedObject<Int32>(x+y));
-	Console::Write(str3);
-	Console::WriteLine(HeapManagedObject<Boolean>(truthy));
-	Console::WriteLine(HeapManagedObject<Object>(new Object()));
+	// unique_ptr<String> combined = unique_ptr<String>(str1.get()->operator+(str2.get()));
 
-	return 0;
+	Console::WriteLine(std::move(str1));
+	Console::Write(std::move(str2));
+	Console::WriteLine(unique_ptr<Object>(x+y));
+	Console::Write(std::move(str3));
+	Console::WriteLine(unique_ptr<Object>(truthy));
+	Console::WriteLine(unique_ptr<Object>(new Object()));
+	// Console::WriteLine(std::move(combined));
+
+	return Int32(0).ToNative();
 }

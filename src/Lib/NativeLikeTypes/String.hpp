@@ -1,6 +1,7 @@
 #include "Object.hpp"
 #include <string>
 
+
 #pragma once
 
 namespace System
@@ -13,14 +14,13 @@ namespace System
 
 		public:
 			Char(wchar_t native);
-			Char(short native);
 			Char(Int16 c);
 			~Char();
 
-			String* ToString(); // note the String* return val since this is a reference type
-			wchar_t ToNative();
+			String* ToString() const; // note the String* return val since this is a reference type
+			wchar_t ToNative() const;
 
-			operator Char*(); // all structs must define a boxing conversion operator
+			operator Char*() const; // all structs must define a boxing conversion operator
 	};
 	
 	class String : public Object
@@ -38,10 +38,10 @@ namespace System
 			~String();
 
 			// TODO: operator overloads
-			String* operator+(String* other);
-			String* operator+(Char other);
+			String* operator+(const String* other) const;
+			String* operator+(const Char& other) const;
 
-			String* ToString(); // note the String* return val since this is a reference type
-			std::wstring ToCpp();
+			String* ToString() const; // note the String* return val since this is a reference type
+			std::wstring ToCpp() const;
 	};
 }

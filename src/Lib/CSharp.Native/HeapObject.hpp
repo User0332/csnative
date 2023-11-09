@@ -7,7 +7,7 @@ namespace CSharp::Native
 		public:
 			TObject* obj;
 			
-			// template decls must be added directly in the header
+			// template defs must be added directly in the header
 			HeapManagedObject(TObject* obj)
 			{
 				this->obj = obj;
@@ -15,13 +15,8 @@ namespace CSharp::Native
 
 			~HeapManagedObject()
 			{
-				std::cout << "Deleting " << obj << '(' << ')' << std::endl;
+				// std::cout << "Deleting " << obj << '(' << ')' << std::endl;
 				delete obj;
-			}
-
-			operator TObject*()
-			{
-				return obj;
 			}
 	};
 }

@@ -1,5 +1,9 @@
 ﻿namespace CSharp.Native;
 
+public class Test
+{
+}
+
 public class Program
 {
 	static int Main()

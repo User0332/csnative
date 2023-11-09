@@ -49,26 +49,26 @@ namespace System
 		inner = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(string);
 	}
 
-	std::wstring String::ToCpp()
+	std::wstring String::ToCpp() const
 	{
 		return inner;
 	}
 
-	String* String::ToString()
+	String* String::ToString() const
 	{
 		std::wstring copy = inner;
 
 		return new String(copy);
 	}
 
-	String* String::operator+(String* other)
+	String* String::operator+(const String* other) const
 	{
 		String* ret = new String(inner+other->inner);
 
 		return ret;
 	}
 
-	String* String::operator+(Char other)
+	String* String::operator+(const Char& other) const
 	{
 		return new String(inner+other.ToNative());
 	}

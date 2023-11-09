@@ -7,28 +7,23 @@ namespace System
 	{
 		inner = native;
 	}
-
-	Char::Char(short native)
-	{
-		inner = (wchar_t) native;
-	}
-
+	
 	Char::Char(Int16 c)
 	{
 		inner = (wchar_t) c.ToNative();
 	}
 
-	String* Char::ToString()
+	String* Char::ToString() const
 	{
 		return new String(std::wstring(1, inner));
 	}
 
-	wchar_t Char::ToNative()
+	wchar_t Char::ToNative() const
 	{
 		return inner;
 	}
 
-	Char::operator Char *()
+	Char::operator Char *() const
 	{
 		return new Char(inner);
 	}

@@ -1,6 +1,9 @@
 #include "NativeLikeTypes/Object.hpp"
 #include "NativeLikeTypes/NumTypes.hpp"
 #include "NativeLikeTypes/String.hpp"
+#include <memory>
+
+using std::unique_ptr;
 
 #pragma once
 
@@ -11,11 +14,11 @@ namespace System
 		// TODO:
 			// [public] System::IO::TextWriter Out;
 		public:
-			static void Write(Object* obj);
-			static void Write(String* string);
+			static void Write(unique_ptr<Object> obj);
+			static void Write(unique_ptr<String> string);
 
 			static void WriteLine();
-			static void WriteLine(Object* obj);
-			static void WriteLine(String* string);
+			static void WriteLine(unique_ptr<Object> obj);
+			static void WriteLine(unique_ptr<String> string);
 	};
 }

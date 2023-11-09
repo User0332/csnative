@@ -1,17 +1,14 @@
 #include "../System.hpp"
-#include "../CSharp.Native/HeapObject.hpp"
 #include <iostream>
-
-using namespace CSharp::Native;
 
 namespace System
 {
-	void Console::Write(Object* obj)
+	void Console::Write(unique_ptr<Object> obj)
 	{
-		Write(obj->ToString());
+		Write(unique_ptr<String>(obj->ToString()));
 	}
 
-	void Console::Write(String* string)
+	void Console::Write(unique_ptr<String> string)
 	{
 		std::wcout << string->ToCpp();
 	}
@@ -21,14 +18,14 @@ namespace System
 		std::cout << std::endl;
 	}
 	
-	void Console::WriteLine(Object* obj)
+	void Console::WriteLine(unique_ptr<Object> obj)
 	{
-		WriteLine(obj->ToString());
+		WriteLine(unique_ptr<String>(obj->ToString()));
 	}
 
-	void Console::WriteLine(String* string)
+	void Console::WriteLine(unique_ptr<String> string)
 	{
-		Write(string);
+		Write(std::move(string));
 		WriteLine();
 	}
 }
