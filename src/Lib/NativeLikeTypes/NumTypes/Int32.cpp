@@ -1,4 +1,5 @@
 #include "../NumTypes.hpp"
+#include "../../CSharp.Native/LoadedAssemblies.hpp"
 
 namespace System
 {
@@ -82,6 +83,20 @@ namespace System
 		return Boolean(val<=other.val);
 	}
 
+	Int32& Int32::operator+=(const Int32& other)
+	{
+		this->val+=other.val;
+		
+		return *this;
+	}
+
+	Int32& Int32::operator-=(const Int32& other)
+	{
+		this->val-=other.val;
+		
+		return *this;
+	}
+
 	String* Int32::ToString()
 	{
 		return new String(std::to_string(val));
@@ -95,5 +110,10 @@ namespace System
 	Int32::~Int32()
 	{
 
+	}
+
+	Type* Int32::GetType()
+	{
+		return CSharp::Native::ReflectionServices::LoadedAssemblyNameMap[new String("CSharp.Native.System")]->GetType(new String("System.Int32"));
 	}
 }

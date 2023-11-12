@@ -19,6 +19,7 @@ namespace System
 
 			String* ToString() const; // note the String* return val since this is a reference type
 			wchar_t ToNative() const;
+			Type* GetType();
 
 			operator Char*() const; // all structs must define a boxing conversion operator
 	};
@@ -40,8 +41,10 @@ namespace System
 			// TODO: operator overloads
 			String* operator+(const String* other) const;
 			String* operator+(const Char& other) const;
+			Boolean operator==(const String* other) const;
 
 			String* ToString() const; // note the String* return val since this is a reference type
 			std::wstring ToCpp() const;
+			Type* GetType();
 	};
 }

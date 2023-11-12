@@ -1,8 +1,6 @@
 #include "../Object.hpp"
 #include "../String.hpp"
-#include "../../CSharp.Native/GarbageCollector.hpp"
-
-using namespace CSharp::Native;
+#include "../../CSharp.Native/LoadedAssemblies.hpp"
 
 namespace System
 {
@@ -34,5 +32,10 @@ namespace System
 	Object::~Object()
 	{
 
+	}
+
+	Type* Object::GetType()
+	{
+		return CSharp::Native::ReflectionServices::LoadedAssemblyNameMap[new String("CSharp.Native.System")]->GetType(new String("System.Object"));
 	}
 }

@@ -3,12 +3,12 @@
 
 namespace System
 {
-	void Console::Write(unique_ptr<Object> obj)
+	void Console::Write(Object* obj)
 	{
-		Write(unique_ptr<String>(obj->ToString()));
+		Write(obj->ToString());
 	}
 
-	void Console::Write(unique_ptr<String> string)
+	void Console::Write(String* string)
 	{
 		std::wcout << string->ToCpp();
 	}
@@ -18,14 +18,14 @@ namespace System
 		std::cout << std::endl;
 	}
 	
-	void Console::WriteLine(unique_ptr<Object> obj)
+	void Console::WriteLine(Object* obj)
 	{
-		WriteLine(unique_ptr<String>(obj->ToString()));
+		WriteLine(obj->ToString());
 	}
 
-	void Console::WriteLine(unique_ptr<String> string)
+	void Console::WriteLine(String* string)
 	{
-		Write(std::move(string));
+		Write(string);
 		WriteLine();
 	}
 }

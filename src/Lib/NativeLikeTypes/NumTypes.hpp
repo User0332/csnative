@@ -41,6 +41,7 @@ namespace System
 			~Int64();
 
 			String* ToString();
+			Type* GetType();
 
 			operator Int64*(); // all structs must define a boxing conversion operator
 	};
@@ -60,6 +61,8 @@ namespace System
 			Int32 operator/(Int32 other);
 			Int32 operator>>(Int32 other);
 			Int32 operator<<(Int32 other);
+			Int32& operator+=(const Int32& other);
+			Int32& operator-=(const Int32& other);
 
 
 			/* Unary */
@@ -80,6 +83,7 @@ namespace System
 			~Int32();
 
 			String* ToString();
+			Type* GetType();
 			
 			operator Int32*(); // all structs must define a boxing conversion operator
 	};
@@ -116,7 +120,8 @@ namespace System
 			~Int16();
 
 			String* ToString();
-
+			Type* GetType();
+			
 			operator Int16*(); // all structs must define a boxing conversion operator
 	};
 
@@ -152,7 +157,8 @@ namespace System
 			~SByte();
 
 			String* ToString();
-
+			Type* GetType();
+			
 			operator SByte*(); // all structs must define a boxing conversion operator
 	};
 
@@ -191,7 +197,8 @@ namespace System
 			~UInt64();
 
 			String* ToString();
-
+			Type* GetType();
+			
 			operator UInt64*(); // all structs must define a boxing conversion operator
 	};
 
@@ -230,7 +237,8 @@ namespace System
 			~UInt32();
 
 			String* ToString();
-
+			Type* GetType();
+			
 			operator UInt32*(); // all structs must define a boxing conversion operator
 	};
 
@@ -266,7 +274,8 @@ namespace System
 			~UInt16();
 
 			String* ToString();
-
+			Type* GetType();
+			
 			operator UInt16*(); // all structs must define a boxing conversion operator
 	};
 
@@ -302,7 +311,8 @@ namespace System
 			~Byte();
 
 			String* ToString();
-
+			Type* GetType();
+			
 			operator Byte*(); // all structs must define a boxing conversion operator
 	};
 }

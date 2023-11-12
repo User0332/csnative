@@ -1,10 +1,8 @@
 #include "../String.hpp"
-#include "../../CSharp.Native/GarbageCollector.hpp"
+#include "../../CSharp.Native/LoadedAssemblies.hpp"
 #include <codecvt>
 #include <locale>
 #include <array>
-
-using namespace CSharp::Native;
 
 namespace System
 {
@@ -73,8 +71,19 @@ namespace System
 		return new String(inner+other.ToNative());
 	}
 
+	Boolean String::operator==(const String* other) const
+	{
+		return Boolean(this->inner == other->inner);
+	}
+
+
 	String::~String()
 	{
 
+	}
+
+	Type* String::GetType()
+	{
+		return CSharp::Native::ReflectionServices::LoadedAssemblyNameMap[new String("CSharp.Native.System")]->GetType(new String("System.String"));
 	}
 }

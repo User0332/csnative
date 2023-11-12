@@ -3,6 +3,7 @@
 namespace System
 {
 	class String;
+	class Type;
 	class Boolean;
 	
 	class Object
@@ -14,6 +15,7 @@ namespace System
 			Object();
 			virtual ~Object();
 			virtual String* ToString();
+			virtual Type* GetType();
 	};
 
 	class Boolean : public Object
@@ -30,6 +32,7 @@ namespace System
 			~Boolean();
 
 			String* ToString();
+			Type* GetType();
 
 			operator Boolean*(); // all structs must define a boxing conversion operator
 	};

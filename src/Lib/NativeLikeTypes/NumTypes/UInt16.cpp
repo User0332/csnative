@@ -1,4 +1,5 @@
 #include "../NumTypes.hpp"
+#include "../../CSharp.Native/LoadedAssemblies.hpp"
 
 namespace System
 {
@@ -95,5 +96,10 @@ namespace System
 	UInt16::~UInt16()
 	{
 
+	}
+
+	Type* UInt16::GetType()
+	{
+		return CSharp::Native::ReflectionServices::LoadedAssemblyNameMap[new String("CSharp.Native.System")]->GetType(new String("System.UInt16"));
 	}
 }

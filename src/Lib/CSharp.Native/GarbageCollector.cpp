@@ -1,53 +1,67 @@
 #include "GarbageCollector.hpp"
 #include "../System.hpp"
+#include "../System/Collections/Generic.hpp"
 #include <iostream>
+#include <cstdarg>
+#include <set>
 
 #pragma once
 
 namespace CSharp::Native
 {
-	std::map<System::Object*, size_t> GC::obj_map = std::map<System::Object*, size_t>();
+	std::vector<System::Object*> GC::alloc_objs = std::vector<System::Object*>();
 	
 	void GC::Register(System::Object* ptr)
 	{
-		if (obj_map.count(ptr) == 0) // doesn't exist
-		{
-			obj_map[ptr] = 0;
-
-			// std::wcout << "GC DEBUG: Registering " << ptr << std::endl;
-
-			return;
-		}
-
-		// std::wcout << "GC DEBUG: Re-Registering " << ptr << std::endl;
-
-		obj_map[ptr]+=1;
+		alloc_objs.emplace_back(ptr);
 	}
 
 	void GC::UnRegister(System::Object* ptr)
 	{
-		if (obj_map.count(ptr) == 0) return; // doesn't exist
-
-		if (obj_map[ptr] == 0)
-		{
-			obj_map.erase(ptr);
-			// std::wcout << "GC DEBUG: Deleting " << ptr  << std::endl;
-
-			delete ptr;
-
-			return;
-		}
-
-		// std::wcout << "GC DEBUG: De-Registering " << ptr  << std::endl;
-		
-		obj_map[ptr]-=1;
+		// alloc_objs.erase()
 	}
 
 	void GC::PrintEntries()
 	{
-		for (auto& entry : obj_map)
+
+	}
+
+	std::set<System::Object*> GC::ExamineRoot(System::Object* root)
+	{
+
+	}
+
+	void GC::Collect(System::Array<System::Object*>* roots)
+	{
+		System::Collections::Generic::IEnumerator<System::Object*>* enumerator = roots->GetEnumerator();
+
+		std::vector<std::set<System::Object*>> seen_sets;
+
+		try
 		{
-			std::wcout << entry.first << '(' << entry.first->ToString()->ToCpp() << ')' << ": " << entry.second << std::endl;
+			while (enumerator->MoveNext())
+			{
+				seen_sets.emplace_back(ExamineRoot(enumerator->Current()));
+			}
+		}
+		catch(...) {}
+
+		enumerator->Dispose();
+
+		for (auto ptr : alloc_objs)
+		{
+			bool contains = false;
+
+			for (auto set : seen_sets)
+			{
+				if (set.count(ptr))
+				{
+					contains = true;
+					break;
+				}
+			}
+
+			if (!contains) delete ptr; // object is not accessible by the application, delete it
 		}
 	}
 }

@@ -1,5 +1,6 @@
 #include "../Object.hpp"
 #include "../String.hpp"
+#include "../../CSharp.Native/LoadedAssemblies.hpp"
 
 namespace System
 {
@@ -38,5 +39,10 @@ namespace System
 	Boolean::~Boolean()
 	{
 		
+	}
+
+	Type* Boolean::GetType()
+	{
+		return CSharp::Native::ReflectionServices::LoadedAssemblyNameMap[new String("CSharp.Native.System")]->GetType(new String("System.Boolean"));
 	}
 }
