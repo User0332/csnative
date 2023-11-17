@@ -31,7 +31,7 @@ class Program
 		static Int32 Main()
 		{
 			Console::WriteLine(new String("Hello, World!"));
-
+	
 			return Int32(0);
 		}
 };

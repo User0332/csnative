@@ -30,8 +30,8 @@ class Program
 	public:
 		static Int32 Main()
 		{
-			Type CSType_NS_System_Console = LoadedAssemblies["CSharp.Native.System"]->LoadType("System.Console");
-			Type CSType_NS_System_String = LoadedAssemblies["CSharp.Native.System"]->LoadType("System.String");
+			Type CSType_NS_System_Console = LoadedAssemblies["CSharp.Native.Runtime"]->LoadType("System.Console");
+			Type CSType_NS_System_String = LoadedAssemblies["CSharp.Native.Runtime"]->LoadType("System.String");
 
 			CSType_NS_System_Console
 				.GetMethod(
