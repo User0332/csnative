@@ -6,26 +6,11 @@
 
 namespace System
 {
-	template <class T> class Array;
-	
-	template <class T, class ...Args> T CreateStackObject(Args... args)
-	{
-		return T(args...);
-	}
-
-	template <class T, class ...Args> T* CreateHeapObject(Args... args)
-	{
-		return new T(args...);
-	}
+	class Array;
 }
 
 namespace System::Reflection
 {
-	template <class T, class ...Args> T CreateObject(Args... args)
-	{
-		return new T(args...);
-	}
-
 	class DLLATTR AssemblyName : public Object
 	{
 		String* name;
@@ -41,14 +26,14 @@ namespace System::Reflection
 	class DLLATTR Assembly : public Object
 	{
 		AssemblyName* name;
-		Array<Type*>* types;
+		Array::Intrinsic<Type*>* types;
 
 		protected:
-			Assembly(String* not_full_name, Array<Type*>* types);
+			Assembly(String* not_full_name, Array::Intrinsic<Type*>* types);
 
 		public:
 			AssemblyName* GetName();
-			Array<Type*>* GetTypes();
+			Array::Intrinsic<Type*>* GetTypes();
 			Type* GetType();
 			Type* GetType(String* name);
 
@@ -90,22 +75,23 @@ namespace System
 {
 	class DLLATTR Type : public Object
 	{
-		Array<System::Reflection::FieldInfo*>* fields;
+		Array::Intrinsic<System::Reflection::FieldInfo*>* fields;
 
 		protected:
 			Type(
 				System::Reflection::Assembly* assembly,
 				String* name,
-				Array<System::Reflection::FieldInfo*>* fields
+				Array::Intrinsic<System::Reflection::FieldInfo*>* fields
 			);
 
 		public:
-			Array<System::Reflection::FieldInfo*>* GetFields();
+			Array::Intrinsic<System::Reflection::FieldInfo*>* GetFields();
 
 			System::Reflection::Assembly* Assembly; /* get; */
 			String* Name; /* get; */
 	};
 
+	// TODO: change impl to use TextWriter Out;
 	class DLLATTR Console // static class, so doesn't inherit from Object
 	{
 		// TODO:

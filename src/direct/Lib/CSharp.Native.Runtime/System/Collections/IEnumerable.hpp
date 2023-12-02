@@ -2,7 +2,7 @@
 
 namespace System::Collections::Generic
 {
-	template <class T> class IEnumerable : public Object
+	template <class T> class DLLATTR IEnumerable : public Object
 	{
 		public:
 			virtual IEnumerator<T>* GetEnumerator()

@@ -35,7 +35,7 @@ Int32 Program::Main()
 	std::wcout << "Initialization of Assembly Metadata [" << CSHARP_NATIVE_SYSTEM_ASSEMBLY_META->Name()->ToCpp() << "] took " << duration_cast<nanoseconds>(duration).count() << "ns" << std::endl;
 
 	Int32 x = Int32(45);
-	Int32 y = Int32(45);;
+	Int32 y = Int32(32);;
 	Boolean truthy = x > y;
 
 	String* str1 = new String(L"Hello, World!", 13);
@@ -51,6 +51,8 @@ Int32 Program::Main()
 	// 	)
 	// );
 
+	
+
 	Console::WriteLine(
 		CSHARP_NATIVE_SYSTEM_ASSEMBLY_META->Name()
 	);
@@ -61,6 +63,7 @@ Int32 Program::Main()
 	Console::Write(str3);
 	Console::WriteLine(truthy);
 	Console::WriteLine(new Object());
+	Console::WriteLine(str1->GetType()->Name);
 	// Console::WriteLine(combined);
 
 	// GC::UNSAFE_CollectAll();
@@ -68,7 +71,7 @@ Int32 Program::Main()
 	return Int32(0);
 }
 
-int RuntimeDLLRunner()
+extern "C" int RuntimeDLLRunner()
 {
 	return Program::Main().ToNative();
 }

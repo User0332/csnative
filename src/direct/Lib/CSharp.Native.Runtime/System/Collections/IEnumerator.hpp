@@ -2,7 +2,7 @@
 
 namespace System::Collections::Generic
 {
-	template <class T> class IEnumerator : public Object
+	template <class T> class  DLLATTR IEnumerator : public Object
 	{
 		public:
 			// current is a prop

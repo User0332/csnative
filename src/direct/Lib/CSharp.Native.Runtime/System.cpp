@@ -20,7 +20,7 @@ namespace System::Reflection
 		return CSharp::Native::ReflectionServices::LoadedAssemblyNameMap[new String("CSharp.Native.Runtime")]->GetType(new String("System.Reflection.AssemblyName"));
 	}
 
-	Assembly::Assembly(String* not_full_name, Array<Type*>* types)
+	Assembly::Assembly(String* not_full_name, Array::Intrinsic<Type*>* types)
 	{
 		
 		name = new AssemblyName(not_full_name);
@@ -37,7 +37,7 @@ namespace System::Reflection
 		return name;
 	}
 
-	Array<Type*>* Assembly::GetTypes()
+	Array::Intrinsic<Type*>* Assembly::GetTypes()
 	{
 		return types;
 	}
@@ -123,7 +123,7 @@ namespace System
 	class SystemRuntimeAssembly : public Reflection::Assembly
 	{
 		public:
-			SystemRuntimeAssembly(String* not_full_name, Array<Type*>* types) : Reflection::Assembly(not_full_name, types)
+			SystemRuntimeAssembly(String* not_full_name, Array::Intrinsic<Type*>* types) : Reflection::Assembly(not_full_name, types)
 			{
 				
 			};
@@ -140,7 +140,7 @@ namespace System
 			SystemRuntimeType(
 				System::Reflection::Assembly* assembly,
 				String* name,
-				Array<System::Reflection::FieldInfo*>* fields
+				Array::Intrinsic<System::Reflection::FieldInfo*>* fields
 			) : Type(assembly, name, fields)
 			{
 				
@@ -155,7 +155,7 @@ namespace System
 	Type::Type(
 		System::Reflection::Assembly* assembly,
 		String* name,
-		Array<System::Reflection::FieldInfo*>* fields)
+		Array::Intrinsic<System::Reflection::FieldInfo*>* fields)
 	{
 		
 		Assembly = assembly;
@@ -163,7 +163,7 @@ namespace System
 		this->fields = fields;
 	}
 
-	Array<System::Reflection::FieldInfo*>* Type::GetFields()
+	Array::Intrinsic<System::Reflection::FieldInfo*>* Type::GetFields()
 	{
 		return fields;
 	}
@@ -177,103 +177,103 @@ DLLATTR System::Reflection::Assembly* InitializeMetadata_ns3_CSharp_Native_Runti
 
 	SystemRuntimeAssembly* assembly = new SystemRuntimeAssembly(
 		assembly_name,
-		(Array<Type*>*)
-		new Array<SystemRuntimeType*>(
+		(Array::Intrinsic<Type*>*)
+		new Array::Intrinsic<SystemRuntimeType*>(
 			new SystemRuntimeType*[19] {
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Boolean"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Char"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Byte"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.SByte"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.UInt16"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Int16"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.UInt32"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Int32"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.UInt64"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Int64"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.String"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Array"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Console"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Type"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.SystemRuntimeAssembly"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.SystemRuntimeType"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Reflection.Assembly"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Reflection.AssemblyName"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 				new SystemRuntimeType(
 					(Reflection::Assembly*) nullptr,
 					new String("System.Reflection.FieldInfo"), 
-					new Array<Reflection::FieldInfo*>()
+					new Array::Intrinsic<Reflection::FieldInfo*>()
 				),
 			}, 19
 		)

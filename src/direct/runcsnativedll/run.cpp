@@ -18,7 +18,7 @@ int main(int argc, char** argv) // does not support command line args yet
 		
 	}
 
-	void (__cdecl *func)() = (void (__cdecl *)()) GetProcAddress(dll, "csnative_entrypoint");
+	void (__cdecl *func)() = (void (__cdecl *)()) GetProcAddress(dll, "RuntimeDLLRunner");
 
 	if (!func)
 	{
